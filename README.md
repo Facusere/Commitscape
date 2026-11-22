@@ -1,5 +1,7 @@
 # Commitscape (Repoescena) · Paisaje y Escenario 3D de Perfiles de GitHub
 
+**Demo en vivo (Vercel):** https://commitscape-three.vercel.app/
+
 ## Descripción
 
 **Commitscape** (evolución conceptual de **Repoescena**) es una aplicación web interactiva que transforma cualquier perfil y portafolio de código de GitHub en un escenario espacial tridimensional vivo. Diseñado bajo una filosofía ligera, directa y sin compilaciones ni dependencias pesadas, convierte métricas técnicas —repositorios, lenguajes, estrellas y actividad de commits— en una galería visual inmersiva, tangible y fácil de explorar desde el navegador.
