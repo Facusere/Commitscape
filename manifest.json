@@ -1,0 +1,17 @@
+{
+  "name": "Commitscape · Repoescena",
+  "short_name": "Commitscape",
+  "description": "Explorador visual de perfiles y organizaciones de GitHub con objetos espaciales interactivos.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1620",
+  "theme_color": "#0b1620",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

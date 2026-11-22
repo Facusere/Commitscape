@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es" data-theme="midnight">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1620">
+  <title>Commitscape (Repoescena) · Explorador de Perfiles de GitHub</title>
+  <meta name="description" content="Explorá el ecosistema tecnológico de GitHub en los últimos 7 días, repositorios populares, perfiles, organizaciones y duelos entre desarrolladores.">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./styles/tokens.css?v=15">
+  <link rel="stylesheet" href="./styles/components.css?v=15">
+  <link rel="stylesheet" href="./styles/scene3d.css?v=15">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button type="button" class="brand brand-btn" id="btn-go-home" title="Volver a Inicio">
+        <div class="logo-cube-wrap" aria-hidden="true">
+          <div class="logo-cube">
+            <span class="logo-face f-front"></span>
+            <span class="logo-face f-back"></span>
+            <span class="logo-face f-right"></span>
+            <span class="logo-face f-left"></span>
+            <span class="logo-face f-top"></span>
+            <span class="logo-face f-bottom"></span>
+          </div>
+        </div>
+        <span class="brand-title">Commitscape</span>
+      </button>
+
+      <div class="topbar-search">
+        <form id="single-search-form" class="search-form topbar-form" autocomplete="off">
+          <div class="input-wrap">
+            <span class="input-prefix" aria-hidden="true">@</span>
+            <label for="user-input" class="sr-only">Usuario de GitHub</label>
+            <input id="user-input" class="field-input" type="text" placeholder="Buscar usuario (ej: torvalds, vercel)" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+        </form>
+
+        <form id="compare-search-form" class="search-form topbar-form hidden" autocomplete="off">
+          <div class="input-wrap">
+            <span class="input-prefix" aria-hidden="true">@</span>
+            <label for="compare-a" class="sr-only">Primer usuario</label>
+            <input id="compare-a" class="field-input" type="text" placeholder="Usuario A" required>
+          </div>
+          <span class="vs-badge" aria-hidden="true">VS</span>
+          <div class="input-wrap">
+            <span class="input-prefix" aria-hidden="true">@</span>
+            <label for="compare-b" class="sr-only">Segundo usuario</label>
+            <input id="compare-b" class="field-input" type="text" placeholder="Usuario B" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Duelo</button>
+        </form>
+      </div>
+
+      <div class="mode-switch" role="group" aria-label="Modo de visualización">
+        <button type="button" class="mode-btn is-active" data-app-mode="home" aria-pressed="true">Inicio</button>
+        <button type="button" class="mode-btn" data-app-mode="single" aria-pressed="false">Perfil</button>
+        <button type="button" class="mode-btn" data-app-mode="compare" aria-pressed="false">Arena de Duelo</button>
+      </div>
+
+      <label for="theme-select" class="sr-only">Tema visual</label>
+      <select id="theme-select" class="theme-select" aria-label="Tema visual">
+        <option value="midnight">Tema: Oscuro</option>
+        <option value="emerald">Tema: Esmeralda</option>
+        <option value="synthwave">Tema: Synthwave</option>
+        <option value="light">Tema: Claro</option>
+      </select>
+    </header>
+
+    <main>
+      <div id="alert-slot"></div>
+      <div id="profile-slot"></div>
+      <div id="repos-slot"></div>
+    </main>
+  </div>
+
+  <dialog id="repo-dialog" class="modal-dialog" aria-label="Inspector de repositorio">
+    <div id="repo-dialog-body"></div>
+  </dialog>
+
+  <dialog id="api-dialog" class="modal-dialog" aria-label="Estado de API y Token personal">
+    <div id="api-dialog-body"></div>
+  </dialog>
+
+  <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="./src/utils/sanitize.js?v=15"></script>
+  <script defer src="./src/domain/linguistColors.js?v=15"></script>
+  <script defer src="./src/api/cacheStore.js?v=15"></script>
+  <script defer src="./src/api/githubClient.js?v=15"></script>
+  <script defer src="./src/domain/analytics.js?v=15"></script>
+  <script defer src="./src/ui/stage3d.js?v=15"></script>
+  <script defer src="./src/ui/exportCard.js?v=15"></script>
+  <script defer src="./src/ui/neuralNet.js?v=15"></script>
+  <script defer src="./src/ui/renderHome.js?v=15"></script>
+  <script defer src="./src/ui/renderProfile.js?v=15"></script>
+  <script defer src="./src/ui/renderRepos.js?v=15"></script>
+  <script defer src="./src/ui/renderCompare.js?v=15"></script>
+  <script defer src="./src/state.js?v=15"></script>
+  <script defer src="./src/main.js?v=15"></script>
+</body>
+</html>
